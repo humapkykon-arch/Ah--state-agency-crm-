@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ah-state-agency-crm
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/me
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: crm-data
+      mountPath: /app
+      sizeGB: 1
